@@ -13,11 +13,11 @@ contract StateVariables {
 
     // State Variables
     int256 age = 40; // by default its qualifiers is 'internal'
-    int256 private privateAge = 40;
-    int256 public publicAge = 40;
-    int256 constant CONSTANT_AGE = 40; // by default its qualifiers is 'internal'
-    int256 public constant CONSTANT_AGE_2 = 40;
-    int256 public constant CONSTANT_AGE_3 = 40;
+    int256 private privateAge = 60;
+    int256 public publicAge = 89;
+    int256 constant CONSTANT_AGE = 41; // by default its qualifiers is 'internal'
+    int256 public constant CONSTANT_AGE_2 = 55;
+    int256 public constant CONSTANT_AGE_3 = 66;
     address public immutable ImmutableAddress;
 
     constructor() {

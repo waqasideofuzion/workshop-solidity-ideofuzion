@@ -50,3 +50,22 @@ contract Hello is SayHello {
         age = _age;
     }
 }
+
+interface IHello {
+    function getAge() external view returns (uint256);
+
+    function getName() external view returns (string memory);
+}
+
+contract ExternalCaller {
+    IHello hello;
+
+    constructor(IHello _hello) {
+        require(address(_hello) != address(0), "ZERO ADDRESS");
+        hello = _hello;
+    }
+
+    function getAgeandName() public view returns(uint256, string memory) {
+        return (hello.getAge(), hello.getName());
+    }
+}

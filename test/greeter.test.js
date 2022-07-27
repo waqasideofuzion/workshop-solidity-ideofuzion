@@ -13,7 +13,7 @@ describe("Greeter: ", function () {
     this.greeter;
 
     const contractAddresses = JSON.parse(
-      fs.readFileSync(path.resolve(__dirname, "../../config.json"), "utf8")
+      fs.readFileSync(path.resolve(__dirname, "../config.json"), "utf8")
     );
 
     if (hre.network.name != "hardhat") {

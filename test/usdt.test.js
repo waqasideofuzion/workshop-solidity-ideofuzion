@@ -6,14 +6,14 @@ const fs = require("fs");
 const path = require("path");
 const network = hre.hardhatArguments.network;
 
-describe.only("USDT: ", function () {
+describe("USDT: ", function () {
   beforeEach("deploy", async function () {
     [account1] = await ethers.getSigners();
 
     this.deployedusdt;
 
     const contractAddresses = JSON.parse(
-      fs.readFileSync(path.resolve(__dirname, "../../config.json"), "utf8")
+      fs.readFileSync(path.resolve(__dirname, "../config.json"), "utf8")
     );
    
     if (hre.network.name != "hardhat") {
