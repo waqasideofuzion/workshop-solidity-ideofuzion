@@ -50,6 +50,10 @@ contract ReferenceTypes {
     // internal
     User myUser = User(32, "Waqas");
 
+    function getList() public view returns (uint8[3] memory) {
+        return list;
+    }
+
     // This will update array's particular location
     function updateList() public {
         list[1] = 45;
@@ -78,11 +82,20 @@ contract ReferenceTypes {
     function updateList4() public view returns (uint8) {
         // By default ref type's location is storage so it works as passby ref
 
-        //int[3] storage newList = list; //this is same below line
+        //int[3] storage newList = list;
 
         // Assigning Ref state (storage) variable to ref storage local variable
         // will not create a separate copy so changing one will effect other
         uint8[3] memory newList = list;
+        newList[1] = 100;
+        return list[1]; //100
+    }
+
+    function updateList5() public returns (uint8) {
+        // By default ref type's location is storage so it works as passby ref
+
+        uint8[3] storage newList = list;
+
         newList[1] = 100;
         return list[1]; //100
     }
@@ -102,5 +115,40 @@ contract ReferenceTypes {
         User memory myUser2 = myUser;
         myUser2.age = 50;
         return myUser.age; // 98
+    }
+
+    function getAgeandName() public view returns (uint8, string memory) {
+
+        return (myUser.age, myUser.name);
+    }
+}
+
+contract MappingExample {
+    mapping(address => uint256) public balances;
+
+    struct User {
+        string name;
+        uint256 age;
+    }
+
+    // nested mapping
+    mapping(address => mapping(string => uint256)) public userNametoAge;
+
+    // custom or user defined complex types are not allowed as key
+    // like mappings, structs or array types are not allowed
+
+    // mapping(mapping(string => uint256) => uint256) public ab;
+    // mapping(User => uint256) public bc;
+
+    function update(uint256 newBalance) public {
+        balances[msg.sender] = newBalance;
+    }
+}
+
+contract MappingUser {
+    function f() public returns (uint256) {
+        MappingExample m = new MappingExample();
+        m.update(100);
+        return m.balances(address(this));
     }
 }

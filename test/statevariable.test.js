@@ -3,7 +3,7 @@ const ethers = hre.ethers;
 const chai = require("chai");
 const { expect } = chai;
 
-describe.only("StateVariables: ", function () {
+describe("StateVariables: ", function () {
   beforeEach("deploy", async function () {
     [account1] = await ethers.getSigners();
 
@@ -37,6 +37,7 @@ describe.only("StateVariables: ", function () {
 
     const storage1 = await this.EthersProvider.getStorageAt(this.deployedStateVariable.address,0);
     const storage2 = await this.EthersProvider.getStorageAt(this.deployedStateVariable.address, 1);
+    
     // console.log("storage1",  parseInt(storage1, 16));
     // console.log("storage2",  parseInt(storage2, 16));
 

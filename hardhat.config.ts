@@ -95,11 +95,11 @@ const config: HardhatUserConfig = {
       accounts: [`0x${PRIVATEKEY}`],
       gasPrice: 35000000000,
     },
-    hardhat: {
-      forking: {
-        url: `https://rinkeby.infura.io/v3/${INFURA_PROJECT_ID}`,
-     }
-    }
+    // hardhat: {
+    //   forking: {
+    //     url: `https://rinkeby.infura.io/v3/${INFURA_PROJECT_ID}`,
+    //  }
+    // }
   },
   typechain: {
     outDir: "types",
