@@ -2,7 +2,7 @@
 pragma solidity ^0.8.7;
 
 // Defining contract
-contract parent {
+contract parent1 {
     uint256 internal sum;
 
     function setValue() external {
@@ -13,19 +13,23 @@ contract parent {
 }
 
 // Defining child contract
-contract child is parent {
+contract child1 is parent1 {
     function getValue() external view returns (uint256) {
         return sum;
     }
 }
 
 // Defining calling contract
-contract caller {
-    child cc = new child();
+contract caller1 {
+    child1 cc = new child1();
+
+    function setValueInChild() public {
+        cc.setValue();
+    }
+
 
     // Defining function to call setValue and getValue functions
-    function testInheritance() public returns (uint256) {
-        cc.setValue();
+    function testInheritance1() public view returns (uint256) {
         return cc.getValue();
     }
 }
