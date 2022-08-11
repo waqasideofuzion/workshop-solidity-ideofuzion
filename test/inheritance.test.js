@@ -3,7 +3,7 @@ const ethers = hre.ethers;
 const chai = require("chai");
 const { expect } = chai;
 
-describe.only("Inheritance: ", function () {
+describe("Inheritance: ", function () {
   beforeEach("deploy", async function () {
     [account1] = await ethers.getSigners();
 
