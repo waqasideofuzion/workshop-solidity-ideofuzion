@@ -27,7 +27,6 @@ contract caller1 {
         cc.setValue();
     }
 
-
     // Defining function to call setValue and getValue functions
     function testInheritance1() public view returns (uint256) {
         return cc.getValue();

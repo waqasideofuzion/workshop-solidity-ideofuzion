@@ -17,6 +17,7 @@ contract A3 {
         sum = a + b;
     }
 }
+
 // Defining child contract B inheriting parent contract A
 contract B3 is A3 {
     // Defining external function to return state variable x
@@ -24,6 +25,7 @@ contract B3 is A3 {
         return x;
     }
 }
+
 // Defining child contract C inheriting parent contract A
 contract C3 is A3 {
     // Defining external function to return state variable sum
@@ -31,6 +33,7 @@ contract C3 is A3 {
         return sum;
     }
 }
+
 // Defining calling contract
 contract caller4 {
     // Creating object of contract B

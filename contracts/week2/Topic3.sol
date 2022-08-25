@@ -118,7 +118,6 @@ contract ReferenceTypes {
     }
 
     function getAgeandName() public view returns (uint8, string memory) {
-
         return (myUser.age, myUser.name);
     }
 }

@@ -65,7 +65,7 @@ contract ExternalCaller {
         hello = _hello;
     }
 
-    function getAgeandName() public view returns(uint256, string memory) {
+    function getAgeandName() public view returns (uint256, string memory) {
         return (hello.getAge(), hello.getName());
     }
 }

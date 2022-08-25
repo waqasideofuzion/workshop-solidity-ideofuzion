@@ -5,8 +5,8 @@ import "@openzeppelin/contracts/token/ERC721/extensions/ERC721Enumerable.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 
 contract MyNFT is ERC721Enumerable, Ownable {
-
     string _baseTokenURI;
+
     constructor() ERC721("Ideofuzion", "Ideofuzion") {}
 
     function mint(address to, uint256 id) external onlyOwner {

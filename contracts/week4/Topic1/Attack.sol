@@ -18,7 +18,7 @@ contract Attack {
         _;
     }
 
-    //cannot use receive fallback here, because if we use this then upon receiving ether, 
+    //cannot use receive fallback here, because if we use this then upon receiving ether,
     // the receive fallback will always call and no withdraw function of the depositFunds contract will be called.
     // receive() external payable {}
 
@@ -39,9 +39,7 @@ contract Attack {
         require(_owner != address(0), "Zero Address");
         require(address(this).balance > 0, "Amount not available for withdraw");
         payable(_owner).transfer(address(this).balance);
-
     }
-
 
     // Helper function to check the balance of this contract
     function getBalance() public view returns (uint256) {
